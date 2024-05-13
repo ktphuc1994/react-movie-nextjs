@@ -1,11 +1,13 @@
 import styles from './page.module.css';
 import LogoutButton from '@/components/common/LogoutButton';
 
-export default function Home() {
+const Home = () => {
   return (
-    <main className={styles.main}>
+    <section className={styles.main}>
       <h1>Homepage</h1>
       <LogoutButton />
-    </main>
+    </section>
   );
-}
+};
+
+export default Home;

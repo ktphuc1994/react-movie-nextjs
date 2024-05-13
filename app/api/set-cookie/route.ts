@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import jwt from 'jsonwebtoken';
 import { TypeUserFromToken } from '@/types/user';
 import { signJoseToken } from '@/helpers/authServ';
+import { COOKIE_AUTH_KEY } from '@/constants/commonConst';
 
 export async function POST(req: NextRequest) {
   const body = req.body ? await req.json() : { token: null };
@@ -38,7 +39,7 @@ export async function POST(req: NextRequest) {
     { content: { message: 'Set cookies success' } },
     { status: 200 }
   );
-  response.cookies.set('auth-token', nextjsToken);
+  response.cookies.set(COOKIE_AUTH_KEY, nextjsToken);
 
   return response;
 }

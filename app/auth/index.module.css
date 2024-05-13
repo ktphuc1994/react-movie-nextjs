@@ -1,0 +1,27 @@
+.authLayout {
+  display: flex;
+
+  [class~='auth-content-wrapper'] {
+    flex-shrink: 0;
+    width: 50%;
+
+    [class~='auth-content'] {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+
+      h1 {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  [class~='animated-icon'] {
+    flex-grow: 1;
+    height: 100vh;
+    overflow: hidden;
+  }
+}

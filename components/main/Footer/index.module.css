@@ -1,0 +1,27 @@
+.mainFooter {
+  padding: 25px 0;
+  font-size: 14px;
+  font-weight: 300;
+  color: #a5a5a5;
+
+  [class~='footer-column-wrapper'] {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 20px;
+
+    [class~='footer-column'] {
+      width: 25%;
+
+      @media only screen and (max-width: 767px) {
+        width: 50%;
+        padding-right: 10px;
+      }
+    }
+  }
+
+  [class~='copy-right'] {
+    text-align: center;
+    margin-top: 15px;
+    padding-top: 15px;
+  }
+}

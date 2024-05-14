@@ -1,0 +1,30 @@
+.footerColumn {
+  & h4 {
+    color: #fff;
+    text-transform: uppercase;
+    margin: 15px 0;
+  }
+
+  [class~='items-wrapper'] {
+    [class~='item'] {
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+    }
+
+    & span {
+      display: block;
+      margin-right: 0.5rem;
+      padding: 0.15rem;
+      background-color: var(--secondary-color);
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    [class~='item-label'] {
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+}

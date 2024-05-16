@@ -3,7 +3,7 @@ import LogoutButton from '@/components/common/LogoutButton';
 
 const Home = () => {
   return (
-    <section className={styles.main}>
+    <section className={styles.mainSection}>
       <h1>Homepage</h1>
       <LogoutButton />
     </section>

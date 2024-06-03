@@ -3,9 +3,8 @@ import LogoutButton from '@/components/common/LogoutButton';
 
 const Home = () => {
   return (
-    <section className={styles.mainSection}>
+    <section className={styles.homepageSection}>
       <h1>Homepage</h1>
-      <LogoutButton />
     </section>
   );
 };

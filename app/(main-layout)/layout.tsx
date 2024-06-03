@@ -11,13 +11,15 @@ type MainLayoutType = {
 
 const MainLayout = ({ children }: MainLayoutType) => {
   return (
-    <main>
+    <main className={classes.mainLayout}>
       <div className={classes.fixedTopHeader}>
         <MainHeader />
         <MainNavbar />
       </div>
       <section className={classes.mainContent}>{children}</section>
-      <MainFooter />
+      <div className={classes.mainFooter}>
+        <MainFooter />
+      </div>
     </main>
   );
 };

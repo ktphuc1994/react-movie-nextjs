@@ -1,0 +1,113 @@
+.mainBanner {
+  border: none;
+
+  &:hover {
+    [class~='slick-next'],
+    [class~='slick-prev'] {
+      opacity: 1;
+    }
+  }
+
+  [class~='slick-prev'] {
+    left: 0;
+  }
+
+  [class~='slick-next'] {
+    right: 0;
+  }
+
+  [class~='slick-next'],
+  [class~='slick-prev'] {
+    --__navigate-width: 50px;
+    --__padding: 10px;
+
+    opacity: 0;
+
+    width: calc(var(--__navigate-width) + var(--__padding) * 2);
+    height: calc(var(--__navigate-width) + var(--__padding) * 2);
+    padding: var(--__padding);
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    transition: background-color 0.3s, opacity 0.3s;
+
+    &::before {
+      line-height: 1.1;
+      font-size: var(--__navigate-width);
+      transition: opacity 0.3s;
+    }
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.75);
+    }
+  }
+
+  [class~='slick-dots'] {
+    bottom: 25px;
+
+    li {
+      position: relative;
+      display: inline-block;
+      height: 28px;
+      width: 28px;
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+      background: linear-gradient(
+        to bottom,
+        rgba(47, 44, 52, 0.6) 0%,
+        rgba(59, 56, 66, 0.6) 100%
+      );
+
+      button {
+        border: 0;
+        background: transparent;
+        display: block;
+        height: 28px;
+        width: 28px;
+        outline: none;
+        line-height: 0;
+        font-size: 0;
+        color: transparent;
+        padding: 5px;
+        cursor: pointer;
+
+        &::before {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 28px;
+          height: 28px;
+          font-size: 8px;
+          line-height: 28px;
+          text-align: center;
+          color: #a8a8a8;
+          opacity: 0.75;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+      }
+
+      &[class~='slick-active'] {
+        button::before {
+          color: #fff;
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+.imageWrapper {
+  height: 390px;
+
+  &:focus-visible {
+    outline: none;
+  }
+
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}

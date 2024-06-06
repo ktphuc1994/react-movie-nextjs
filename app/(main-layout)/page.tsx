@@ -1,10 +1,17 @@
+import MainBanner from '@/components/carousel/MainBanner';
 import styles from './page.module.css';
-import LogoutButton from '@/components/common/LogoutButton';
 
 const Home = () => {
   return (
     <section className={styles.homepageSection}>
-      <h1>Homepage</h1>
+      <div className='banner-section'>
+        <MainBanner />
+      </div>
+
+      <div className='movie-section'>
+        <h1>Homepage</h1>
+        <p>Movie Section</p>
+      </div>
     </section>
   );
 };

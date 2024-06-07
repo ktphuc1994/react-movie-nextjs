@@ -1,0 +1,68 @@
+.imageWrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+
+  & img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 300 / 500;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.movieTitle {
+  display: block;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.movieRating {
+  position: absolute;
+  right: 0;
+  bottom: 2.5rem;
+  padding-right: 0.4rem;
+
+  [class~='anticon'] {
+    position: relative;
+    margin-right: 1.2rem;
+    color: #fde047;
+    font-size: 0.875rem;
+    vertical-align: baseline;
+  }
+
+  &::before {
+    --paddingY: 0.1rem;
+    --paddingX: 1rem;
+
+    content: '';
+    position: absolute;
+    bottom: 50%;
+    padding: var(--paddingY) var(--paddingX);
+    width: 100%;
+    height: 100%;
+    transform: translate(calc(var(--paddingX) * -1), 50%) skew(25deg);
+    background: rgba(255, 255, 255, 0.6);
+  }
+
+  & > span {
+    position: relative;
+    color: #000;
+    font-size: 1.15rem;
+    font-weight: 600;
+  }
+}
+
+.movieHot {
+  position: absolute;
+  right: 0.4rem;
+  bottom: 0.4rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  background-color: #f58020;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}

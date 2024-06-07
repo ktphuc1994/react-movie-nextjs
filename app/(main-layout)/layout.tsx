@@ -11,7 +11,7 @@ type MainLayoutType = {
 
 const MainLayout = ({ children }: MainLayoutType) => {
   return (
-    <main className={classes.mainLayout}>
+    <div className={classes.mainLayout}>
       <div className={classes.fixedTopHeader}>
         <MainHeader />
         <MainNavbar />
@@ -20,7 +20,7 @@ const MainLayout = ({ children }: MainLayoutType) => {
       <div className={classes.mainFooter}>
         <MainFooter />
       </div>
-    </main>
+    </div>
   );
 };
 

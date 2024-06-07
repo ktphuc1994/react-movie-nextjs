@@ -1,3 +1,4 @@
+import { serverErrorHandling } from './errorServ';
 import LOCAL_SERV from './localServ';
 
 const clientFetch = async (url: string, requestInit?: RequestInit) => {
@@ -26,7 +27,10 @@ const clientFetch = async (url: string, requestInit?: RequestInit) => {
   }
 };
 
-export const serverFetch = async (url: string, requestInit?: RequestInit) => {
+const serverFetch = async <T = any>(
+  url: string,
+  requestInit?: RequestInit
+): Promise<T> => {
   const newOptions = { ...requestInit };
   const contentType = 'application/json';
   const headers = {
@@ -49,4 +53,29 @@ export const serverFetch = async (url: string, requestInit?: RequestInit) => {
   }
 };
 
+type ServerFetchResult<T> =
+  | {
+      isError: false;
+      data: T;
+    }
+  | {
+      isError: true;
+      message: string;
+    };
+const handleServerFetchResult = async <T = any>(
+  fetch: Promise<T>
+): Promise<ServerFetchResult<T>> => {
+  try {
+    const res = await fetch;
+    return {
+      isError: false,
+      data: res,
+    };
+  } catch (error) {
+    const message = await serverErrorHandling(error);
+    return { isError: true, message };
+  }
+};
+
 export default clientFetch;
+export { serverFetch, handleServerFetchResult };

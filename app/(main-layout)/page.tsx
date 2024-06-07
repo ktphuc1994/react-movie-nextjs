@@ -1,18 +1,19 @@
 import MainBanner from '@/components/carousel/MainBanner';
 import styles from './page.module.css';
+import MoviesList from '@/components/movies/MoviesList';
 
 const Home = () => {
   return (
-    <section className={styles.homepageSection}>
-      <div className='banner-section'>
+    <div className={styles.homepage}>
+      <section className='banner-section'>
         <MainBanner />
-      </div>
+      </section>
 
-      <div className='movie-section'>
-        <h1>Homepage</h1>
-        <p>Movie Section</p>
-      </div>
-    </section>
+      <section className='movie-section'>
+        <h1>Movies</h1>
+        <MoviesList />
+      </section>
+    </div>
   );
 };
 

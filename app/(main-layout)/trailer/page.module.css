@@ -1,0 +1,8 @@
+.movieTrailer {
+  width: 100vw;
+  height: calc(100vh - var(--main-header-height));
+}
+
+.trailerIframe {
+  border: none;
+}

@@ -1,6 +1,9 @@
 import { MovieType } from '@/types/movie';
 import classes from './MovieItem.module.css';
 import { StarFilled } from '@ant-design/icons';
+import Button from 'antd/es/button';
+import { PlayCircleFilled, BarcodeOutlined } from '@ant-design/icons';
+import Link from 'next/link';
 
 type Props = {
   movieItem: MovieType;
@@ -10,6 +13,18 @@ const MovieItem = ({ movieItem }: Props) => {
     <div>
       <div className={classes.imageWrapper}>
         <img src={movieItem.hinhAnh} />
+        <div className={classes.itemOverlay}>
+          <Link href={`/movie/${movieItem.maPhim}/booking`}>
+            <Button icon={<BarcodeOutlined />} type='primary' size='large'>
+              Book Tickets
+            </Button>
+          </Link>
+          <Link href={`/trailer?url=${movieItem.trailer}`} scroll={false}>
+            <Button icon={<PlayCircleFilled />} size='large'>
+              Trailer
+            </Button>
+          </Link>
+        </div>
         {movieItem.danhGia ? (
           <div className={classes.movieRating}>
             <StarFilled />

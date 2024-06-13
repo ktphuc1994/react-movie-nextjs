@@ -12,7 +12,7 @@
 }
 
 .mainContent {
-  padding-top: 135px;
+  padding-top: var(--main-header-height);
   flex-grow: 1;
 }
 

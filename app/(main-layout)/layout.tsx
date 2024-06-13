@@ -7,20 +7,24 @@ import classes from './page.module.css';
 
 type MainLayoutType = {
   children: ReactNode;
+  trailerModal: ReactNode;
 };
 
-const MainLayout = ({ children }: MainLayoutType) => {
+const MainLayout = ({ children, trailerModal }: MainLayoutType) => {
   return (
-    <div className={classes.mainLayout}>
-      <div className={classes.fixedTopHeader}>
-        <MainHeader />
-        <MainNavbar />
+    <>
+      {trailerModal}
+      <div className={classes.mainLayout}>
+        <div className={classes.fixedTopHeader}>
+          <MainHeader />
+          <MainNavbar />
+        </div>
+        <section className={classes.mainContent}>{children}</section>
+        <div className={classes.mainFooter}>
+          <MainFooter />
+        </div>
       </div>
-      <section className={classes.mainContent}>{children}</section>
-      <div className={classes.mainFooter}>
-        <MainFooter />
-      </div>
-    </div>
+    </>
   );
 };
 

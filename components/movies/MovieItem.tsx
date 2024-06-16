@@ -9,11 +9,14 @@ type Props = {
   movieItem: MovieType;
 };
 const MovieItem = ({ movieItem }: Props) => {
+  const movieDetailUrl = `/movie/${movieItem.maPhim}`;
+
   return (
     <div>
       <div className={classes.imageWrapper}>
         <img src={movieItem.hinhAnh} />
-        <div className={classes.itemOverlay}>
+        <Link href={movieDetailUrl} className={classes.imageOverlay}></Link>
+        <div className={classes.movieLinks}>
           <Link href={`/movie/${movieItem.maPhim}/booking`}>
             <Button icon={<BarcodeOutlined />} type='primary' size='large'>
               Book Tickets
@@ -33,7 +36,9 @@ const MovieItem = ({ movieItem }: Props) => {
         ) : null}
         {movieItem.hot ? <span className={classes.movieHot}>hot</span> : null}
       </div>
-      <span className={classes.movieTitle}>{movieItem.tenPhim}</span>
+      <Link href={movieDetailUrl} className={classes.movieTitle}>
+        {movieItem.tenPhim}
+      </Link>
     </div>
   );
 };

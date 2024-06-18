@@ -1,0 +1,11 @@
+.virtualScroll {
+  [class~='rc-virtual-list-holder-inner'] {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.5rem;
+
+    [class~='ant-list-item'] {
+      border-block-end: none;
+    }
+  }
+}

@@ -1,11 +1,11 @@
 'use client';
 
-import { getMovieList } from '@/helpers/movieServ';
 import { MovieType } from '@/types/movie';
 import message from 'antd/es/message';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import MovieItem from './MovieItem';
 import { DEFAULT_PAGE_SIZE } from '@/constants/commonConst';
+import { getMovieList } from '@/helpers/api/movieServ';
 
 const InfiniteScroll = () => {
   const [data, setData] = useState<MovieType[]>([]);

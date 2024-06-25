@@ -1,4 +1,4 @@
-import { getMovieBanner } from '@/helpers/movieServ';
+import { getMovieBanner } from '@/helpers/api/movieServ';
 import MainCarousel from './MainCarousel';
 
 const MainBanner = async () => {

@@ -1,20 +1,10 @@
 'use client';
 import classes from './index.module.css';
-
-// import local library
 import { useRouter } from 'next/navigation';
-
-// import types
+import { postRegister } from '@/helpers/api/userServ';
+import errorHandling from '@/helpers/api/errorServ';
 import { TypeUserRegister } from '@/types/user';
-
-// import local service
-import { postRegister } from '@/helpers/userServ';
-import errorHandling from '@/helpers/errorServ';
-
-// import local component
 import Countdown from '../countdown';
-
-// import ant design components
 import Form from 'antd/es/form/Form';
 import Input from 'antd/es/input/Input';
 import Button from 'antd/es/button';

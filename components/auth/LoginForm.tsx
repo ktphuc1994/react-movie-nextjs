@@ -1,28 +1,19 @@
 'use client';
+
 import classes from './index.module.css';
-
-// import types
 import { TypeUserLogin } from '@/types/user';
-
-// import local library
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-
-// import local service
 import LOCAL_SERV from '@/helpers/localServ';
-import { postLogin } from '@/helpers/userServ';
-import errorHandling from '@/helpers/errorServ';
-
-// import local components
 import Countdown from '../countdown';
-
-// import ant design components
 import Form from 'antd/es/form/Form';
 import Input from 'antd/es/input/Input';
 import Button from 'antd/es/button';
 import FormItem from 'antd/es/form/FormItem';
 import useNotification from 'antd/es/notification/useNotification';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
+import { postLogin } from '@/helpers/api/userServ';
+import errorHandling from '@/helpers/api/errorServ';
 
 type FieldType = {
   email?: string;

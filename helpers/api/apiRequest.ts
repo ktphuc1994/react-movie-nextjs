@@ -1,5 +1,6 @@
+import { FetchWithContent } from '@/types/common';
 import { serverErrorHandling } from './errorServ';
-import LOCAL_SERV from './localServ';
+import LOCAL_SERV from '../localServ';
 
 const clientFetch = async (url: string, requestInit?: RequestInit) => {
   'use client';
@@ -27,10 +28,10 @@ const clientFetch = async (url: string, requestInit?: RequestInit) => {
   }
 };
 
-const serverFetch = async <T = any>(
+const serverFetch = async <T = any, R = FetchWithContent<T>>(
   url: string,
   requestInit?: RequestInit
-): Promise<T> => {
+): Promise<R> => {
   const newOptions = { ...requestInit };
   const contentType = 'application/json';
   const headers = {

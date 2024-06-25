@@ -4,20 +4,22 @@ import { StarFilled } from '@ant-design/icons';
 import Button from 'antd/es/button';
 import { PlayCircleFilled, BarcodeOutlined } from '@ant-design/icons';
 import Link from 'next/link';
+import { slugify } from '@/helpers/common';
 
 type Props = {
   movieItem: MovieType;
 };
 const MovieItem = ({ movieItem }: Props) => {
-  const movieDetailUrl = `/movie/${movieItem.maPhim}`;
+  const slugifiedUrl = slugify(movieItem.tenPhim) + '-' + movieItem.maPhim;
+  const movieDetailUrl = `/movie/${slugifiedUrl}`;
 
   return (
     <div>
       <div className={classes.imageWrapper}>
         <img src={movieItem.hinhAnh} />
-        <Link href={movieDetailUrl} className={classes.imageOverlay}></Link>
+        <Link href={movieDetailUrl} className={classes.imageOverlay} />
         <div className={classes.movieLinks}>
-          <Link href={`/movie/${movieItem.maPhim}/booking`}>
+          <Link href={`/movie/${slugifiedUrl}/booking`}>
             <Button icon={<BarcodeOutlined />} type='primary' size='large'>
               Book Tickets
             </Button>

@@ -18,7 +18,7 @@ type MovieType = {
   trailer: string;
   hinhAnh?: string;
   moTa: string;
-  ngayKhoiChieu?: string;
+  ngayKhoiChieu?: string; // ISO Date String
   danhGia?: number;
   hot?: boolean;
   dangChieu: boolean;

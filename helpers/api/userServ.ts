@@ -1,5 +1,5 @@
 // import local service
-import LOCAL_SERV from './localServ';
+import LOCAL_SERV from '../localServ';
 import clientFetch, { serverFetch } from './apiRequest';
 
 // import local interfaces

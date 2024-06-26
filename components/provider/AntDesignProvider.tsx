@@ -3,11 +3,12 @@
 import { ReactNode } from 'react';
 import theme from 'antd/es/theme';
 import ConfigProvider, { ThemeConfig } from 'antd/es/config-provider';
+import { colorConst } from '@/constants/colorConst';
 
 const configTheme: ThemeConfig = {
   algorithm: theme.darkAlgorithm,
   token: {
-    colorPrimary: '#f5821e',
+    colorPrimary: colorConst.COLOR_PRIMARY,
   },
 };
 

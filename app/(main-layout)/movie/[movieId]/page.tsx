@@ -5,6 +5,11 @@ import {
 import { HomeOutlined } from '@ant-design/icons';
 import CommonBreadcrumb from '@/components/common/CommonBreadcrumb';
 import { getMovieDetail } from '@/helpers/api/movieServ';
+import classes from './page.module.css';
+import Link from 'next/link';
+import { getYouTubeLink, slugify } from '@/helpers/common';
+import YoutubeIframe from '@/components/common/YoutubeIframe';
+import MovieDetailContent from '@/components/movies/MovieDetailContent';
 
 type Props = {
   params: { movieId: string };
@@ -13,9 +18,13 @@ type Props = {
 const MovieDetail = async ({ params }: Props) => {
   const movieId = params.movieId.split('-').pop() ?? '';
 
-  const movieDetail = await getMovieDetail(movieId);
+  const movieResponse = await getMovieDetail(movieId);
 
-  if (movieDetail.isError) return null;
+  if (movieResponse.isError) return null;
+
+  const movieInfo = movieResponse.data;
+
+  const slugifiedUrl = slugify(movieInfo.tenPhim) + '-' + movieInfo.maPhim;
 
   const breadcrumbItems: Partial<
     BreadcrumbItemType & BreadcrumbSeparatorType
@@ -27,7 +36,7 @@ const MovieDetail = async ({ params }: Props) => {
     },
     {
       path: '2',
-      title: movieDetail.data.tenPhim,
+      title: movieInfo.tenPhim,
     },
   ];
 
@@ -36,7 +45,14 @@ const MovieDetail = async ({ params }: Props) => {
       <section className='movie-detail-breadcrumb'>
         <CommonBreadcrumb items={breadcrumbItems} />
       </section>
-      {movieDetail.data.moTa}
+      <section className={classes.movieDetailTitle}>
+        <h1>{movieInfo.tenPhim}</h1>
+        <Link href={`/movie/${slugifiedUrl}/booking`}>BOOK TICKET</Link>
+      </section>
+      <section className={classes.movieVideoFrame}>
+        <YoutubeIframe youtubeLink={getYouTubeLink(movieInfo.trailer, true)} />
+      </section>
+      <MovieDetailContent movieInfo={movieInfo} />
     </div>
   );
 };

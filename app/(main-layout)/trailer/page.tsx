@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import classes from './page.module.css';
 import { getYouTubeLink } from '@/helpers/common';
+import YoutubeIframe from '@/components/common/YoutubeIframe';
 
 type Props = {
   searchParams: {
@@ -15,17 +16,11 @@ const TrailerPage = ({ searchParams }: Props) => {
     notFound();
   }
 
+  const youtubeLink = getYouTubeLink(trailerUrl, true);
+
   return (
     <div className={classes.movieTrailer}>
-      <iframe
-        className={classes.trailerIframe}
-        width='100%'
-        height='100%'
-        src={getYouTubeLink(trailerUrl, true)}
-        title='YouTube video player'
-        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-        allowFullScreen
-      />
+      <YoutubeIframe youtubeLink={youtubeLink} />
     </div>
   );
 };

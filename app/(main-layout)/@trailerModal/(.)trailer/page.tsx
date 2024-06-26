@@ -1,6 +1,7 @@
 import ModalBackDrop from '@/components/common/ModalBackDrop';
 import { getYouTubeLink } from '@/helpers/common';
 import classes from './page.module.css';
+import YoutubeIframe from '@/components/common/YoutubeIframe';
 
 type Props = {
   searchParams: {
@@ -16,15 +17,7 @@ const TrailerModal = ({ searchParams }: Props) => {
       <ModalBackDrop />
       <div className={classes.trailerModal}>
         {trailerUrl ? (
-          <iframe
-            className={classes.trailerIframe}
-            width='100%'
-            height='100%'
-            src={getYouTubeLink(trailerUrl, true)}
-            title='YouTube video player'
-            allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-            allowFullScreen
-          />
+          <YoutubeIframe youtubeLink={getYouTubeLink(trailerUrl, true)} />
         ) : (
           <div>Not found</div>
         )}

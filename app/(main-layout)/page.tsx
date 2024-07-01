@@ -1,6 +1,6 @@
 import MainBanner from '@/components/carousel/MainBanner';
 import styles from './page.module.css';
-import MoviesList from '@/components/movies/MoviesList';
+import MoviesList from '@/components/movies/MovieList';
 
 const Home = () => {
   return (

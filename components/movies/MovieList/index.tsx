@@ -1,6 +1,6 @@
 import MovieItem from './MovieItem';
-import classes from './MovieList.module.css';
-import InfiniteScroll from './InfiniteScroll';
+import classes from './index.module.css';
+import InfiniteScroll from '../InfiteScroll';
 import { DEFAULT_PAGE, DEFAULT_PAGE_SIZE } from '@/constants/commonConst';
 import { getMovieList } from '@/helpers/api/movieServ';
 

@@ -3,7 +3,7 @@
 import { MovieType } from '@/types/movie';
 import message from 'antd/es/message';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import MovieItem from './MovieItem';
+import MovieItem from '../MovieList/MovieItem';
 import { DEFAULT_PAGE_SIZE } from '@/constants/commonConst';
 import { getMovieList } from '@/helpers/api/movieServ';
 
